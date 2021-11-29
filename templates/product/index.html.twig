@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+    {% for product in products %}
+        {% include "_inc/pagination_products.html.twig" %}
+        <div class="col-4">
+            <p>Nom du produit: {{product.name}}</p>
+            <p>Prix = {{product.price}} Euros</p>
+            <div class="frame"><img src={{asset(product.image)}} class="img-fluid"></div>
+            <a href="{{url('product.detail',{ slug: product.slug})}}" class="btn btn-info" role="button">Consulter</a>
+        </div>
+    {% endfor %}
+    </div>
+    {# <div class="pagination">
+        {{ knp_pagination_render(products) }}
+    </div> #}
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+           
+            {% for i in 1..nbPage %}            
+                <li class="page-item"><a class="page-link" href="{{ url('product.pagination', { page: i }) }}">{{ i }}</a></li>
+            {% endfor %}
+
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+    
+    
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <ul>
+        {#{% for key,value in list %} #}
+
+        <p>Nom du produit: {{product.name}}</p>
+        <p>Description : {{product.description}} </p>
+        <p>Prix = {{product.price}} Euros</p>
+        <div class="frame"><img src={{asset(product.image)}}></div>
+
+        {# {% endfor %} #}
+   </ul>
+
+{% endblock %}
+
+{% block title %}
+       Acceuil
+{% endblock %}

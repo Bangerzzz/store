@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+    <div class="row">
+    {% for dat in data %}
+        <div class="col-4">
+            <p>Nom du produit: {{dat.name}}</p>
+            <p>Prix = {{dat.price}} Euros</p>
+            <div class="frame"><img src={{asset(dat.image)}} class="img-fluid"></div>
+            <a href="{{url('product.detail',{ slug: dat.slug})}}" class="btn btn-info" role="button">Consulter</a>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
